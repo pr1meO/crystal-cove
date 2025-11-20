@@ -1,6 +1,6 @@
 ﻿namespace CrystalCove.Models;
 
-class Room
+public class Room
 {
     public int Id { get; set; } // Личный номер
 

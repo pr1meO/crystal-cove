@@ -1,6 +1,6 @@
 ﻿namespace CrystalCove.Models;
 
-class Booking
+public class Booking
 {
     public int Id { get; set; } // Личный номер
 
