@@ -2,7 +2,7 @@
 
 namespace CrystalCove.Models;
 
-class AppDbContext : DbContext
+public class AppDbContext : DbContext
 {
     // Определение сущностей в базе данных
     public DbSet<Client> Clients { get; set; } // Клиент

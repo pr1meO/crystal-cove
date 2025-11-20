@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CrystalCove.Models;
+﻿namespace CrystalCove.Models;
 
 public class Client : Person
 {

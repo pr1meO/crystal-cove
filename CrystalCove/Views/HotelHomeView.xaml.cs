@@ -41,19 +41,19 @@ namespace CrystalCove
         // Обработчик события для перехода на страницу клиента
         private void rdClient_Click(object sender, RoutedEventArgs e)
         {
-            PagesNavigation.Navigate(new System.Uri("Views/ClientPageView.xaml", UriKind.RelativeOrAbsolute));
+            PagesNavigation.Navigate(new System.Uri("Views/Client/ClientPageView.xaml", UriKind.RelativeOrAbsolute));
         }
 
         // Обработчик события для перехода на страницу комнаты
         private void rdRoom_Click(object sender, RoutedEventArgs e)
         {
-            PagesNavigation.Navigate(new System.Uri("Views/RoomPageView.xaml", UriKind.RelativeOrAbsolute));
+            PagesNavigation.Navigate(new System.Uri("Views/Room/RoomPageView.xaml", UriKind.RelativeOrAbsolute));
         }
 
         // Обработчик события для перехода на страницу бронирования
         private void rdBooking_Click(object sender, RoutedEventArgs e)
         {
-            PagesNavigation.Navigate(new System.Uri("Views/BookingPageView.xaml", UriKind.RelativeOrAbsolute));
+            PagesNavigation.Navigate(new System.Uri("Views/Booking/BookingPageView.xaml", UriKind.RelativeOrAbsolute));
         }
 
         // Обработчик события для перехода на страницу выход
@@ -86,7 +86,7 @@ namespace CrystalCove
         {
             rdClient.IsChecked = true;
 
-            PagesNavigation.Navigate(new System.Uri("Views/ClientPageView.xaml", UriKind.RelativeOrAbsolute));
+            PagesNavigation.Navigate(new System.Uri("Views/Client/ClientPageView.xaml", UriKind.RelativeOrAbsolute));
         }
     }
 }
