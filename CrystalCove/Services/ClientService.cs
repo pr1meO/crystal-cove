@@ -11,11 +11,18 @@ public static class ClientService
     // Получение всех клиентов
     public static List<Client> GetAllClient()
     {
-        return _context.Clients.ToList();
+        return _context.Clients
+            .ToList();
     }
 
     // Добавление клиента
-    public static void CreateClient(string firstName, string lastName, string patronymic, string passportNumber, string phoneNumber, string email)
+    public static void CreateClient(
+        string firstName,
+        string lastName,
+        string patronymic,
+        string passportNumber,
+        string phoneNumber,
+        string email)
     {
         Client client = new Client
         {
@@ -31,7 +38,13 @@ public static class ClientService
     }
 
     // Обновление клиента
-    public static void UpdateClient(string firstName, string lastName, string patronymic, string passportNumber, string phoneNumber, string email, Client client)
+    public static void UpdateClient(string firstName,
+        string lastName,
+        string patronymic,
+        string passportNumber,
+        string phoneNumber,
+        string email,
+        Client client)
     {
         // Находим клиента в базе данных по его ID
         Client upClient = _context.Clients.Find(client.Id);

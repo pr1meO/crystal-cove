@@ -38,35 +38,35 @@ namespace CrystalCove.Views
             var hotelHomeView = FindPerent<HotelHomeView>(this);
             hotelHomeView?.ShowOverlay();
 
-            //if (UserService.CurrentStaff != null)
-            //{
-            //    using (AppDbContext hotelDbContext = new AppDbContext())
-            //    {
-            //        var currentClient = hotelDbContext.Clients.FirstOrDefault();
+            if (UserService.CurrentStaff != null)
+            {
+                using (AppDbContext hotelDbContext = new AppDbContext())
+                {
+                    var currentClient = hotelDbContext.Clients.FirstOrDefault();
 
-            //        if (currentClient != null)
-            //        {
-            //            AddBookingView addBookingView = new AddBookingView(BookingDataGrid, UserService.CurrentStaff, currentClient);
-            //            addBookingView.ShowDialog();
+                    if (currentClient != null)
+                    {
+                        AddBookingView addBookingView = new AddBookingView(BookingDataGrid, UserService.CurrentStaff, currentClient);
+                        addBookingView.ShowDialog();
 
-            //            hotelHomeView?.HideOverlay();
+                        hotelHomeView?.HideOverlay();
 
-            //            RefreshBookingData();
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("Не удалось определить текущего клиента.", "Ошибка",
-            //            MessageBoxButton.OK, MessageBoxImage.Error);
-            //            hotelHomeView?.HideOverlay();
-            //        }
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Не удалось определить текущего сотрудника.", "Ошибка",
-            //    MessageBoxButton.OK, MessageBoxImage.Error);
-            //    hotelHomeView?.HideOverlay();
-            //}
+                        RefreshBookingData();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Не удалось определить текущего клиента.", "Ошибка",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                        hotelHomeView?.HideOverlay();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Не удалось определить текущего сотрудника.", "Ошибка",
+                MessageBoxButton.OK, MessageBoxImage.Error);
+                hotelHomeView?.HideOverlay();
+            }
         }
 
         // Обработчик события для кнопки изменения бронирования
@@ -78,7 +78,7 @@ namespace CrystalCove.Views
             using (AppDbContext hotelDbContext = new AppDbContext())
             {
                 var currentClient = hotelDbContext.Clients.FirstOrDefault();
-                UpdateBookingView updateBookingView = new UpdateBookingView(BookingDataGrid, new Staff(), currentClient);
+                UpdateBookingView updateBookingView = new UpdateBookingView(BookingDataGrid, UserService.CurrentStaff, currentClient);
                 updateBookingView.ShowDialog();
 
                 hotelHomeView?.HideOverlay();

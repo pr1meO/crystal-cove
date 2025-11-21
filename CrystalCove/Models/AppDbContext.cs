@@ -51,12 +51,12 @@ public class AppDbContext : DbContext
             [
                 new()
                 {
+                    RoleId = 1,
                     FirstName = "Иванов",
                     LastName = "Иван",
                     Patronymic = "Иванович",
                     UserName = "admin",
                     Password = "111",
-                    RoleId = 1
                 },
             ];
 

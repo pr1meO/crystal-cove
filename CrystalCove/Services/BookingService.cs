@@ -1,5 +1,4 @@
 ﻿using CrystalCove.Models;
-using CrystalCove.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace CrystalCove.Services
@@ -19,7 +18,13 @@ namespace CrystalCove.Services
         }
 
         // Добавление бронирование
-        public static bool CreateBooking(DateTime bookingDate, DateTime checkIn, DateTime checkOut, string clientFullName, string staffFullName, int numberRoom)
+        public static bool CreateBooking(
+            DateTime bookingDate,
+            DateTime checkIn,
+            DateTime checkOut,
+            string clientFullName,
+            string staffFullName,
+            int numberRoom)
         {
             // Поиск комнаты по номеру комнаты
             var room = _context.Rooms.FirstOrDefault(r => r.NumberRoom == numberRoom);
@@ -62,7 +67,14 @@ namespace CrystalCove.Services
         }
 
         // Обновление бронирования
-        public static bool UpdateBooking(DateTime bookingDate, DateTime checkIn, DateTime checkOut, string clientFullName, string staffFullName, int numberRoom, Booking booking)
+        public static bool UpdateBooking(
+            DateTime bookingDate,
+            DateTime checkIn,
+            DateTime checkOut,
+            string clientFullName,
+            string staffFullName,
+            int numberRoom,
+            Booking booking)
         {
             // Поиск комнаты по номеру комнаты
             var newRoom = _context.Rooms.FirstOrDefault(r => r.NumberRoom == numberRoom);
