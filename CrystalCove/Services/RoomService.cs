@@ -9,19 +9,28 @@ public static class RoomService
     // Получение всех номеров
     public static List<Room> GetAllRoom()
     {
-        return _context.Rooms.ToList();
+        return _context.Rooms
+            .ToList();
     }
 
     // Добавление номеров
-    public static void CreateRoom(int numberRoom, string category, int floor, int numberSeats, decimal price)
+    public static void CreateRoom(
+        int numberRoom, 
+        string category, 
+        int floor, 
+        int numberSeats, 
+        decimal price)
     {
         // Создаем новую комнату
-        Room room = new Room { NumberRoom = numberRoom, 
-                               Category = category, 
-                               Floor = floor, 
-                               NumberSeats = numberSeats, 
-                               Price = price, 
-                               StatusBooking = false };
+        Room room = new() 
+        { 
+            NumberRoom = numberRoom,
+            Category = category,
+            Floor = floor,
+            NumberSeats = numberSeats,
+            Price = price,
+            StatusBooking = false,
+        };
         _context.Rooms.Add(room);
         _context.SaveChanges();
     }
@@ -37,6 +46,7 @@ public static class RoomService
     {
         // Находим номер в базе данных по его ID
         Room upRoom = _context.Rooms.Find(room.Id);
+
         if (upRoom != null)
         {
             upRoom.NumberRoom = numberRoom;
@@ -53,12 +63,14 @@ public static class RoomService
     public static bool DeleteRoom(Room room)
     {
         Room delRoom = _context.Rooms.Single(x => x.Id == room.Id);
+
         if (delRoom != null)
         {
             _context.Rooms.Remove(delRoom);
             _context.SaveChanges();
             return true;
         }
+
         return false;
     }
 
@@ -66,6 +78,7 @@ public static class RoomService
     public static void UpdateRoomStatus(int roomId, bool status)
     {
         var room = _context.Rooms.FirstOrDefault(r => r.Id == roomId);
+
         if (room != null)
         {
             room.StatusBooking = status;
